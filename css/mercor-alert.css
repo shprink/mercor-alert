@@ -1,0 +1,138 @@
+/*
+---
+
+name: MercorAlert
+
+version: 1.0
+
+description: A lightweight Mootools Class that provides alerts
+
+authors: Julien Renaux
+
+repository: https://github.com/shprink/mercor-alert
+
+license: MIT
+
+Copyright (c) 2012 Julien Renaux <contact@julienrenaux.fr>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+...
+*/
+
+@CHARSET "UTF-8";
+
+#mercor-alert-container{
+	position: fixed;
+	font-family: Arial,Verdana,sans-serif;
+}
+
+#mercor-alert-container.top-left{
+	top: 10px;
+	left:10px;
+}
+
+#mercor-alert-container.top-right{
+	top: 10px;
+	right:10px;
+}
+
+#mercor-alert-container.bottom-left{
+	bottom: 10px;
+	left:10px;
+}
+
+#mercor-alert-container.bottom-right{
+	bottom: 10px;
+	right:10px;
+}
+
+#mercor-alert-container .mercor-alert{
+	color:#000;
+	display:block;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	position:relative;
+	margin-bottom:10px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#mercor-alert-container .mercor-title{
+	font-weight: bold;
+	font-size: 14px;
+	color:#333;
+}
+
+#mercor-alert-container .mercor-text{
+	font-size: 13px;
+}
+
+#mercor-alert-container .mercor-close{
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-image: url("../img/close.png"); /* http://www.gentleface.com */
+	opacity: 0.5;
+	cursor: pointer;
+}
+#mercor-alert-container .mercor-close:hover{
+	opacity: 1;
+}
+#mercor-alert-container .mercor-inner{
+	padding: 5px;
+}
+
+#mercor-alert-container div.success{
+	border: 1px solid #E8FC53;
+	background: #dbf043; /* Old browsers */
+	background: -moz-linear-gradient(top,  #dbf043 0%, #c3d825 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbf043), color-stop(100%,#c3d825)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #dbf043 0%,#c3d825 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #dbf043 0%,#c3d825 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #dbf043 0%,#c3d825 100%); /* IE10+ */
+	background: linear-gradient(top,  #dbf043 0%,#c3d825 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbf043', endColorstr='#c3d825',GradientType=0 ); /* IE6-9 */
+}
+#mercor-alert-container div.notice{
+	border: 1px solid #FFF98C;
+	background: #fff95b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fff95b 0%, #ede100 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff95b), color-stop(100%,#ede100)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fff95b 0%,#ede100 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fff95b 0%,#ede100 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fff95b 0%,#ede100 100%); /* IE10+ */
+	background: linear-gradient(top,  #fff95b 0%,#ede100 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff95b', endColorstr='#ede100',GradientType=0 ); /* IE6-9 */
+}
+#mercor-alert-container div.error{
+	border: 1px solid #FF8944;
+	background: #ff8944; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ff8944 0%, #f25e0e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8944), color-stop(100%,#f25e0e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ff8944 0%,#f25e0e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ff8944 0%,#f25e0e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ff8944 0%,#f25e0e 100%); /* IE10+ */
+	background: linear-gradient(top,  #ff8944 0%,#f25e0e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8944', endColorstr='#f25e0e',GradientType=0 ); /* IE6-9 */
+}
