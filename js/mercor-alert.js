@@ -49,6 +49,7 @@ var MercorAlert = new Class({
 			'position': 'top-right'			
 		},
 		'node': {
+			'id': 'mercor-alert',
 			'width' : 300,
 			'delay': 5000,
 			'opacity' : 0.9,
@@ -56,7 +57,7 @@ var MercorAlert = new Class({
 				+'<div class="mercor-close" title="Close"></div>'
 				+'<div class="mercor-title">{TITLE}</div>'
 				+'<div class="mercor-text">{TEXT}</div>'
-			+'</div>',
+			+'</div>'
 		}
 	},
 
@@ -95,10 +96,11 @@ var MercorAlert = new Class({
 	
 	_addEvents: function()
 	{
-		var node = this.node;
+		var o = this;
 		// Add the delete event
-		this.buttonClose.addEvent('click',function(){
-			node.destroy();
+		this.buttonClose.addEvent('click',function(event){
+			o.close();
+			event.stop();
 		});
 		
 		this.event = new Fx.Tween(this.node,{
@@ -115,6 +117,8 @@ var MercorAlert = new Class({
 		this.event.start('opacity',0,this.options.node.opacity);
 		// Event Hold
 		this.event.start('opacity',this.options.node.opacity,this.options.node.opacity);
+		// Event Close: Fade Out
+		this.event.start('opacity',this.options.node.opacity,0);
 
 		// Add the Pause event when hovering the container
 		this.container.addEvents({
@@ -132,7 +136,7 @@ var MercorAlert = new Class({
 		var text = (options.text || '').toString();
 		this.node = new Element('div',{
 			html:  this.options.node.template.replace('{TITLE}', title).replace('{TEXT}', text),
-			'class': 'mercor-alert ' + (options.type || 'success')
+			'class': this.options.node.id + ' ' + (options.type || 'success')
 		});
 		this.node.setStyle('width', this.options.node.width);
 		this.node.setStyle('opacity', 0);
@@ -151,9 +155,7 @@ var MercorAlert = new Class({
 	},
 
 	close: function(){
-		if(!this.event) return;
-		this.event.addEvent('complete',function(){this.node.destroy();}.bind(this));
-		// Event Close: Fade Out
-		this.event.start('opacity',this.options.node.opacity,0);
+		if(!this.node) return;
+		this.node.destroy();
 	}
 });
