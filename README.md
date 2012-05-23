@@ -1,4 +1,6 @@
-Mercor Alert
+
+
+Mercor Alert is Deprecated. everything is happening in this repo: https://github.com/shprink/mercor
 ============
 
 Alert is a Mootools based Class that allows you to display different type of alerts to users.
